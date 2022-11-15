@@ -8,22 +8,24 @@ function ScoreList(props) {
       <h2 className={ScoreListStyles.h2}>SOLERA TEAMS. BOOTCAMP 4</h2>
 
       <table className={ScoreListStyles.tablecomponent}>
-        <tr className={ScoreListStyles.rawcomponent}>
-          <th>{props.team.name}</th>
-          <th>{props.score}</th>
-        </tr>
-        {
-          // A table row will be shown for each activity
-          props.team.actividades.map((actividad) => (
-            <tr>
+        <thead>
+          <tr className={ScoreListStyles.rawcomponent}>
+            <th>{props.team.name}</th>
+            <th>{props.score}</th>
+          </tr>
+        </thead>
+        <tbody>
+          {// A table row will be shown for each activity
+          props.team.actividades.map((actividad, i) => (
+            <tr key={i}>
               <td className={ScoreListStyles.columnone}> {actividad.name}</td>
               <td className={ScoreListStyles.columntwo}>
                 {" "}
                 {actividad.puntos} puntos
               </td>
             </tr>
-          ))
-        }
+          ))}
+        </tbody>
       </table>
       <Link className={ScoreListStyles.volver} to="/">
         VOLVER

@@ -26,15 +26,14 @@ root.render(
         path="/"
         element={<Main teamdata={teamdata} sumPoints={sumPoints} />}
       ></Route>
-      {
-        // A separate table view will be created for each team
-        teamdata.map((team) => (
-          <Route
-            path={`team/:id`}
-            element={<TableView team={team} score={sumPoints(team)} />}
-          />
-        ))
-      }
+      {// A separate table view will be created for each team
+      teamdata.map(team => (
+        <Route
+          key={team.id}
+          path={`team/${team.id}`}
+          element={<TableView team={team} score={sumPoints(team)} />}
+        />
+      ))}
     </Routes>
   </BrowserRouter>
 );
