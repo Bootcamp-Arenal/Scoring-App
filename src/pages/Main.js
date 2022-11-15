@@ -11,17 +11,16 @@ function Main({ teamdata, sumPoints }) {
     <span>
       <h1>SOLERA TEAMS. BOOTCAMP 4</h1>
       <div className={MainStyles.container}>
-        {
-          // For each team, a Team Card will be displayed
-          teamdata.map((team) => (
-            <TeamCard
-              id={team.id}
-              name={team.name}
-              score={sumPoints(team)}
-              route
-            />
-          ))
-        }
+        {// For each team, a Team Card will be displayed
+        teamdata.map(team => (
+          <TeamCard
+            key={team.id}
+            id={team.id}
+            name={team.name}
+            score={sumPoints(team)}
+            route
+          />
+        ))}
       </div>
     </span>
   );
